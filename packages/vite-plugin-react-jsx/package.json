@@ -1,0 +1,26 @@
+{
+  "name": "vite-plugin-react-jsx",
+  "version": "0.0.1",
+  "description": "A Vite plugin that enhances jsx transformation for React",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/threepointone/vite-plugin-react-jsx",
+  "author": "Sunil Pai <threepointone@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-syntax-jsx": "^7.12.10",
+    "@babel/plugin-transform-react-jsx": "^7.12.10",
+    "@babel/plugin-transform-react-jsx-self": "^7.12.10",
+    "@babel/plugin-transform-react-jsx-source": "^7.12.10"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.1.12",
+    "esbuild": "^0.8.42"
+  },
+  "scripts": {
+    "build:types": "tsc src/index.ts --skipLibCheck --emitDeclarationOnly --declaration --declarationDir dist",
+    "build:source": "esbuild src/index.ts --outfile=dist/index.js --format=cjs",
+    "build": "rm -rf dist && yarn build:types && yarn build:source"
+  }
+}
